@@ -17,5 +17,7 @@
             <Image x:Name="kosc4" Source="img/kosc0.png" Margin="10" Width="70"/>
             <Image x:Name="kosc5" Source="img/kosc0.png" Margin="10" Width="70"/>
         </StackPanel>
+        <Button Content="Rzut" Width="60" Height="30" Background="#ED275021" Foreground="White"/>
+        <TextBlock Text="0" FontSize="40" TextAlignment="Center"/>
     </StackPanel>
 </Window>
