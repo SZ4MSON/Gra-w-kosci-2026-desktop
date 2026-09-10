@@ -24,5 +24,10 @@ namespace Gra_w_kosci_2026_desktop
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
