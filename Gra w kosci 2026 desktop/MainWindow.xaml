@@ -6,18 +6,19 @@
         xmlns:local="clr-namespace:Gra_w_kosci_2026_desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Background="#ED27C121">
+        Background="#ED27C121"
+        Loaded="Window_Loaded">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Image x:Name="kosc1" Source="img/kosc0.png" Margin="10" Width="70"/>
-            <Image x:Name="kosc2" Source="img/kosc0.png" Margin="10" Width="70"/>
+            <Image x:Name="kosc1" Tag="0" Source="img/kosc0.png" Margin="10" Width="70" MouseDown="OnDiceClick"/>
+            <Image x:Name="kosc2" Tag="1" Source="img/kosc0.png" Margin="10" Width="70" MouseDown="OnDiceClick"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Image x:Name="kosc3" Source="img/kosc0.png" Margin="10" Width="70"/>
-            <Image x:Name="kosc4" Source="img/kosc0.png" Margin="10" Width="70"/>
-            <Image x:Name="kosc5" Source="img/kosc0.png" Margin="10" Width="70"/>
+            <Image x:Name="kosc3" Tag="2" Source="img/kosc0.png" Margin="10" Width="70" MouseDown="OnDiceClick"/>
+            <Image x:Name="kosc4" Tag="3" Source="img/kosc0.png" Margin="10" Width="70" MouseDown="OnDiceClick"/>
+            <Image x:Name="kosc5" Tag="4" Source="img/kosc0.png" Margin="10" Width="70" MouseDown="OnDiceClick"/>
         </StackPanel>
-        <Button Content="Rzut" Width="60" Height="30" Background="#ED275021" Foreground="White"/>
-        <TextBlock Text="0" FontSize="40" TextAlignment="Center"/>
+        <Button Content="Rzut" Width="60" Height="30" Background="#ED275021" Foreground="White" Click="BtnRoll_Click"/>
+        <TextBlock x:Name="txtResult" Text="0" FontSize="40" TextAlignment="Center"/>
     </StackPanel>
 </Window>
