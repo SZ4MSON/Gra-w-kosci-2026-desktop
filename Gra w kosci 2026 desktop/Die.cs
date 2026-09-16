@@ -39,5 +39,20 @@ namespace Gra_w_kosci_2026_desktop
             this.diceAvailable = true;
             Kosc.instancesCounter++;
         }
+
+        public void throwDice()
+        {
+            if (!this.diceAvailable) return;
+
+            int roll = _rnd.Next(1, 7);
+            this.currentDice = roll;
+            this.currentDiceFileIdx = roll;
+        }
+
+        public void toggleLock()
+        {
+            this.diceAvailable = !this.diceAvailable;
+        }
+
     }
 }
