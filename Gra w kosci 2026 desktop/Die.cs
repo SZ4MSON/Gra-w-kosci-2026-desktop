@@ -54,5 +54,19 @@ namespace Gra_w_kosci_2026_desktop
             this.diceAvailable = !this.diceAvailable;
         }
 
+        public string currentDiceText()
+        {
+            Dictionary<int, string> diceTextMap = new Dictionary<int, string>{
+                {0, "zero" },
+                {1, "jeden" },
+                {2, "dwa" },
+                {3, "trzy" },
+                {4, "cztery" },
+                {5, "pięć" },
+                {6, "sześć" }
+            };
+
+            return diceTextMap[this.currentDice];
+        }
     }
 }
