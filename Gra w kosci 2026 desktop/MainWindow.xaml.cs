@@ -39,6 +39,25 @@ namespace Gra_w_kosci_2026_desktop
             };
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            for (int i = 0; i < diceElements.Length; i++)
+            {
+                var dice = dices[i];
+                var img = diceElements[i];
+
+                int idx = (dice.currentDiceFileIdx >= 0 && dice.currentDiceFileIdx < dice.filenames.Length)
+                    ? dice.currentDiceFileIdx
+                    : 0;
+
+                img.Source = new BitmapImage(new Uri(dice.filenames[idx], UriKind.Relative));
+                img.Opacity = dice.diceAvailable ? 1.0 : 0.5;
+            }
+
+            txtResult.Text = dices.Sum(d => d.currentDice).ToString();
+        }
+
         private void BtnRoll_Click(object sender, RoutedEventArgs e)
         {
             int total = 0;
