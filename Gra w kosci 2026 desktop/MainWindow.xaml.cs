@@ -25,48 +25,33 @@ namespace Gra_w_kosci_2026_desktop
             new Kosc(0),
             new Kosc(0),
             new Kosc(0),
-            new Kosc(0)
+            new Kosc(0),
         };
-
-        public Image[] diceElements;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            diceElements = new Image[] {
-                kosc1, kosc2, kosc3, kosc4, kosc5
-            };
-
-
-            for (int i = 0; i < diceElements.Length; i++)
-            {
-                var dice = dices[i];
-                var img = diceElements[i];
-
-                int idx = (dice.currentDiceFileIdx >= 0 && dice.currentDiceFileIdx < dice.filenames.Length)
-                    ? dice.currentDiceFileIdx
-                    : 0;
-
-                img.Source = new BitmapImage(new Uri(dice.filenames[idx], UriKind.Relative));
-                img.Opacity = dice.diceAvailable ? 1.0 : 0.5;
-            }
-
-            txtResult.Text = dices.Sum(d => d.currentDice).ToString();
         }
 
         private void BtnRoll_Click(object sender, RoutedEventArgs e)
         {
+            Image[] diceElements = { kosc1, kosc2, kosc3, kosc4, kosc5 };
             int total = 0;
+
             for (int i = 0; i < dices.Length; i++)
             {
-                Kosc dice = dices[i];
-                Image diceElement = diceElements[i];
+                dices[i].throwDice();
 
-                dice.throwDice();
-                diceElement.Source = new BitmapImage(new Uri(dice.filenames[dice.currentDiceFileIdx], UriKind.Relative));
-                total += dice.currentDice;
+                total += dices[i].currentDice;
+
+                diceElements[i].Source = new BitmapImage(
+                    new Uri(
+                        dices[i].filenames[dices[i].currentDiceFileIdx],
+                        UriKind.Relative
+                    )
+                );
             }
+
             txtResult.Text = total.ToString();
         }
 
@@ -75,8 +60,16 @@ namespace Gra_w_kosci_2026_desktop
             Image img = (Image)sender;
             int tag = Convert.ToInt32(img.Tag);
 
-            dices[tag].toggleLock();
-            img.Opacity = dices[tag].diceAvailable ? 1.0 : 0.5;
+            if (dices[tag].diceAvailable == true)
+            {
+                dices[tag].toggleLock();
+                img.Opacity = 0.5;
+            }
+            else
+            {
+                dices[tag].diceAvailable = true;
+                img.Opacity = 1;
+            }
         }
     }
 }
