@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:Gra_w_kosci_2026_desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Background="#ED27C121"
-        Loaded="Window_Loaded">
+        Background="#ED27C121">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Image x:Name="kosc1" Tag="0" Source="img/kosc0.png" Margin="10" Width="70" MouseDown="OnDiceClick"/>

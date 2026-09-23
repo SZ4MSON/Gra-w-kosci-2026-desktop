@@ -37,10 +37,7 @@ namespace Gra_w_kosci_2026_desktop
             diceElements = new Image[] {
                 kosc1, kosc2, kosc3, kosc4, kosc5
             };
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
 
             for (int i = 0; i < diceElements.Length; i++)
             {
@@ -61,7 +58,7 @@ namespace Gra_w_kosci_2026_desktop
         private void BtnRoll_Click(object sender, RoutedEventArgs e)
         {
             int total = 0;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < dices.Length; i++)
             {
                 Kosc dice = dices[i];
                 Image diceElement = diceElements[i];
